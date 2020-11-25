@@ -1,0 +1,3 @@
+<script>
+    document.getElementById('id_day').setAttribute('type', 'date')
+</script>

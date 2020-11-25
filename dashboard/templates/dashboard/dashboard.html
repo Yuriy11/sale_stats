@@ -1,0 +1,44 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+    <form method="get">
+        {{ filter.form.as_p }}
+        <input type="submit"/>
+    </form>
+
+    <table>
+        {% for obj in filter.qs %}
+
+            <tr>
+                <td>{{ obj.date }}</td>
+                <td>{{ obj.UTM }}</td>
+                <td>{{ obj.requests }}</td>
+            <td>{{ obj.orders }}</td>
+            <td>{{ obj.in_new_status }}</td>
+            <td>{{ obj.in_cant_reach_status }}</td>
+            <td>{{ obj.in_not_ordered_status }}</td>
+            <td>{{ obj.in_refused_status }}</td>
+            <td>{{ obj.ratio_approve }}</td>
+            <td>{{ obj.ratio_new }}</td>
+            <td>{{ obj.ration_cant_reach }}</td>
+
+            <td>{{ obj.ration_not_ordered }}</td>
+            <td>{{ obj.ratio_refused }}</td>
+            <td>{{ obj.revenue }}</td>
+            <td>{{ obj.average_purchase_value_UAH }}</td>
+
+            </tr>
+
+        {% endfor %}
+    </table>
+{% endblock %}
+</body>
+<style>
+    tr {
+        display: flex;
+        justify-content: space-evenly;
+
+    }
+    td{border: 2px solid red}
+</style>
+</html>

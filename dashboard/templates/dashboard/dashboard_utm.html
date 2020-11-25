@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+    <form method="get">
+        {{ filter.form.as_p }}
+        <input type="submit"/>
+    </form>
+    <table>
+        {% for obj in filter.qs %}
+
+            <tr>
+                <td>{{ obj.UTM }}</td>
+                <td>{{ obj.page_link }}</td>
+                <td>{{ obj.order_sum }}</td>
+            </tr>
+
+        {% endfor %}
+    </table>
+{% endblock %}
+</body>
+<style>
+    tr {
+        display: flex;
+        justify-content: space-evenly;
+
+    }
+    td{border: 2px solid red}
+</style>
+</html>
