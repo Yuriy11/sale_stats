@@ -29,7 +29,8 @@ class DailySaleResultsByUTM(models.Model):
     revenue = models.FloatField()
     average_purchase_value_UAH = models.FloatField()
     currency_ratio_to_UAH = models.ForeignKey(to=CurrencyRatioToUAH, on_delete=models.SET_NULL, null=True, blank=True)
-    #add average return rate
+
+    # add average return rate
     def save(self, *args, **kwargs):
         add_missing_currency_ratios('USD')
         self.currency_ratio_to_UAH = CurrencyRatioToUAH.objects.filter(code__exact='USD', date__exact=self.date)[0]
@@ -39,7 +40,9 @@ class DailySaleResultsByUTM(models.Model):
 class DailySaleResultsByUTMFilter(django_filters.FilterSet):
     class Meta:
         model = DailySaleResultsByUTM
-        fields = ['date', 'UTM', 'requests', 'orders', 'in_new_status','in_cant_reach_status','in_not_ordered_status','in_refused_status','ratio_approve','ratio_new','ration_cant_reach','ration_not_ordered','ratio_refused','revenue','average_purchase_value_UAH']
+        fields = ['date', 'UTM', 'requests', 'orders', 'in_new_status', 'in_cant_reach_status', 'in_not_ordered_status',
+                  'in_refused_status', 'ratio_approve', 'ratio_new', 'ration_cant_reach', 'ration_not_ordered',
+                  'ratio_refused', 'revenue', 'average_purchase_value_UAH']
 
 
 ###################LOGIC

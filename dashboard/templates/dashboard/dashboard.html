@@ -6,26 +6,47 @@
         <input type="submit"/>
     </form>
 
-    <table>
+    <table class="js-sort-table" id=dashboard" data-js-sort-table="true">
+        <thead>
+        <tr>
+            <th class="js-sort-date" title="class=&quot;js-sort-date&quot;" data-js-sort-colnum="0">Date</th>
+            <th data-js-sort-colnum="1">UTM</th>
+            <th class="js-sort-number" title="class=&quot;js-sort-number&quot;" data-js-sort-colnum="2">Заявок</th>
+            <th data-js-sort-colnum="3">Заказов</th>
+            <th data-js-sort-colnum="4">Новых</th>
+            <th data-js-sort-colnum="5">Недозвон</th>
+            <th data-js-sort-colnum="6">Не заказ.</th>
+            <th data-js-sort-colnum="7">Отказ</th>
+            <th data-js-sort-colnum="8">%App</th>
+            <th data-js-sort-colnum="9">%Новых</th>
+            <th data-js-sort-colnum="10">%Недоз</th>
+            <th data-js-sort-colnum="11">%Незак</th>
+            <th data-js-sort-colnum="12">%Отказ</th>
+            <th data-js-sort-colnum="13">Выручка</th>
+            <th data-js-sort-colnum="14">Ср.чек</th>
+            <th data-js-sort-colnum="15">Закуп</th>
+            <th data-js-sort-colnum="16">Ср.закуп</th>
+        </tr>
+        </thead>
         {% for obj in filter.qs %}
 
             <tr>
                 <td>{{ obj.date }}</td>
                 <td>{{ obj.UTM }}</td>
                 <td>{{ obj.requests }}</td>
-            <td>{{ obj.orders }}</td>
-            <td>{{ obj.in_new_status }}</td>
-            <td>{{ obj.in_cant_reach_status }}</td>
-            <td>{{ obj.in_not_ordered_status }}</td>
-            <td>{{ obj.in_refused_status }}</td>
-            <td>{{ obj.ratio_approve }}</td>
-            <td>{{ obj.ratio_new }}</td>
-            <td>{{ obj.ration_cant_reach }}</td>
+                <td>{{ obj.orders }}</td>
+                <td>{{ obj.in_new_status }}</td>
+                <td>{{ obj.in_cant_reach_status }}</td>
+                <td>{{ obj.in_not_ordered_status }}</td>
+                <td>{{ obj.in_refused_status }}</td>
+                <td>{{ obj.ratio_approve }}</td>
+                <td>{{ obj.ratio_new }}</td>
+                <td>{{ obj.ration_cant_reach }}</td>
 
-            <td>{{ obj.ration_not_ordered }}</td>
-            <td>{{ obj.ratio_refused }}</td>
-            <td>{{ obj.revenue }}</td>
-            <td>{{ obj.average_purchase_value_UAH }}</td>
+                <td>{{ obj.ration_not_ordered }}</td>
+                <td>{{ obj.ratio_refused }}</td>
+                <td>{{ obj.revenue }}</td>
+                <td>{{ obj.average_purchase_value_UAH }}</td>
 
             </tr>
 
@@ -39,6 +60,13 @@
         justify-content: space-evenly;
 
     }
-    td{border: 2px solid red}
+
+    td {
+        border: 2px solid red
+    }
+    *{
+        box-sizing: border-box;
+    }
 </style>
 </html>
+
